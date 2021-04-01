@@ -1,0 +1,44 @@
+body,html{
+    height: 100%;
+}
+.container{
+    height: 100%;
+}
+/* 树 */
+.tree-container{
+    height: calc(100% - .56rem);
+    /* margin-bottom: .12rem; */
+    background-color: #fff;
+    overflow-y: auto;
+}
+/* 底部 */
+.seleted-info-wrap{
+    height: .56rem;
+    padding: 0 .15rem;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+.seleted-info-wrap .confirm-btn{
+    height: .4rem;
+    width: .8rem;
+    line-height: .4rem;
+    text-align: center;
+
+    background-color: #2c82fd;
+    color: #fff;
+    font-size: .15rem;
+    border-radius: .04rem;
+}
+
+.seleted-info-wrap .selected-info{
+    flex: 1;
+    font-size: .15rem;
+    color: #2C82FD;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+

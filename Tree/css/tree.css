@@ -1,0 +1,236 @@
+body,p{
+    margin: 0;
+    padding: 0;
+}
+
+.tree-container{
+    position: relative;
+}
+.tree-node-1,
+.tree-node-2,
+.tree-node-3,
+.tree-node-4,
+.tree-node-5{
+    height: .51rem;
+    /* padding: 0 .12rem  0 0; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.tree-node-2,
+.tree-node-3,
+.tree-node-4,
+.tree-node-5{
+    height: 0rem;
+    /* height: .51rem; */
+    /* padding: 0 .12rem 0 0; */
+    transition: height .4s ease;
+}
+
+.sub-tree-node-1.open .tree-node-2,
+.sub-tree-node-2.open .tree-node-3,
+.sub-tree-node-3.open .tree-node-4,
+.sub-tree-node-4.open .tree-node-5{
+    height: .51rem;
+}
+
+.tree-node-1 .node-check-icon-1,
+.tree-node-2 .node-check-icon-2,
+.tree-node-3 .node-check-icon-3,
+.tree-node-4 .node-check-icon-4,
+.tree-node-5 .node-check-icon-5{
+    height: 100%;
+    width: .36rem;
+    padding-left: .12rem;
+    background: url(../images/uncheck.png) no-repeat;
+    background-size: .24rem .24rem;
+    background-position: .12rem center;
+}
+.tree-node-1.checked .node-check-icon-1,
+.tree-node-2.checked .node-check-icon-2,
+.tree-node-3.checked .node-check-icon-3,
+.tree-node-4.checked .node-check-icon-4,
+.tree-node-5.checked .node-check-icon-5{
+    background: url(../images/checked.png) no-repeat;
+    background-size: .24rem .24rem;
+    background-position: .12rem center;
+}
+
+
+.tree-node-1 .node-text-1,
+.tree-node-2 .node-text-2,
+.tree-node-3 .node-text-3,
+.tree-node-4 .node-text-4,
+.tree-node-5 .node-text-5{
+    position: relative;
+    height: .51rem;
+    line-height: .51rem;
+    padding-left: .4rem;
+    font-size: .14rem;
+    color: #11212f;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    flex: 1;
+}
+.tree-node-2 .node-text-2{
+    padding-left: .61rem;
+}
+.tree-node-3 .node-text-3{
+    padding-left: .71rem;
+}
+.tree-node-4 .node-text-4{
+    padding-left: .81rem;
+}
+.tree-node-5 .node-text-5{
+    padding-left: .91rem;
+}
+
+
+.tree-node-1 .node-text-1::before,
+.tree-node-2 .node-text-2::before,
+.tree-node-3 .node-text-3::before,
+.tree-node-4 .node-text-4::before,
+.tree-node-5 .node-text-5::before{
+    position: absolute;
+    left: .06rem;
+    top: 50%;
+    content: '';
+    display: block;
+    overflow: hidden;
+    width: .24rem;
+    height: .24rem;
+    background: url(../images/node.png) no-repeat;
+    background-size: cover;
+    transform: translateY(-50%);
+}
+
+.tree-node-2 .node-text-2::before,
+.tree-node-3 .node-text-3::before,
+.tree-node-4 .node-text-4::before,
+.tree-node-5 .node-text-5::before{
+    background: url(../images/sub-node.png) no-repeat;
+    background-size: cover;
+}
+.tree-node-2 .node-text-2::before{
+    left:.16rem;
+}
+.tree-node-3 .node-text-3::before{
+    left:.26rem;
+}
+.tree-node-4 .node-text-4::before{
+    left:.36rem;
+}
+
+.tree-node-5 .node-text-5::before{
+    left:.46rem;
+}
+.node-text{
+    flex: 1;
+}
+.node-text::after{
+    display: none;
+    position: absolute;
+    right: 0rem;
+    top: 50%;
+    content: '';
+    /* display: block; */
+    overflow: hidden;
+    width: .24rem;
+    height: .24rem;
+    background: url(../images/down.png) no-repeat;
+    background-size: cover;
+    transform: translate(-50%,-50%);
+    transition: transform .4s ease;
+}
+.tree-node-1.parent>.node-text-1::after,
+.tree-node-2.parent>.node-text-2::after,
+.tree-node-3.parent>.node-text-3::after,
+.tree-node-4.parent>.node-text-4::after,
+.tree-node-5.parent>.node-text-5::after{
+    display: block;
+}
+.tree-node.unfold .node-text::after{
+    transform: translate(-50%,-50%) rotate(180deg);
+}
+
+.tree-node-1 .node-fold-icon-1,
+.tree-node-2 .node-fold-icon-2,
+.tree-node-3 .node-fold-icon-3,
+.tree-node-4 .node-fold-icon-4,
+.tree-node-5 .node-fold-icon-5{
+    display: none;
+    position: relative;
+    height: 100%;
+    width: .48rem;
+    transition: transform .4s ease;
+}
+.tree-node-1 .node-fold-icon-1::after,
+.tree-node-2 .node-fold-icon-2::after,
+.tree-node-3 .node-fold-icon-3::after,
+.tree-node-4 .node-fold-icon-4::after,
+.tree-node-5 .node-fold-icon-5::after{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: '';
+    display: block;
+    overflow: hidden;
+    width: .24rem;
+    height: .24rem;
+    background: url(../images/down.png) no-repeat;
+    background-size: cover;
+    transform: translate(-50%,-50%);
+}
+.tree-node-1 .node-fold-icon-1.fold,
+.tree-node-2 .node-fold-icon-2.fold,
+.tree-node-3 .node-fold-icon-3.fold,
+.tree-node-4 .node-fold-icon-4.fold,
+.tree-node-5 .node-fold-icon-5.fold{
+    transform: rotate(180deg);
+}
+.tree-node-1.haveChild .node-fold-icon-1,
+.tree-node-2.haveChild .node-fold-icon-2,
+.tree-node-3.haveChild .node-fold-icon-3,
+.tree-node-4.haveChild .node-fold-icon-4,
+.tree-node-5.haveChild .node-fold-icon-5{
+    display: block;
+}
+
+
+.sub-tree-node-1,
+.sub-tree-node-2,
+.sub-tree-node-3,
+.sub-tree-node-4,
+.sub-tree-node-5{
+    position: relative;
+}
+.sub-tree-node-1::before,
+.sub-tree-node-2::before,
+.sub-tree-node-3::before,
+.sub-tree-node-4::before,
+.sub-tree-node-5::before{
+    position: absolute;
+    left: .54rem;
+    /* top: -.25rem; */
+    content: '';
+    display: block;
+    overflow: hidden;
+    width: .01rem;
+    height: 100%;
+    background-color: #d8d8d8;
+}
+.sub-tree-node-2::before{
+    left: .64rem;
+}
+.sub-tree-node-3::before{
+    left: .74rem;
+}
+.sub-tree-node-4::before{
+    left: .84rem;
+}
+.sub-tree-node-5::before{
+    left: .94rem;
+}
+
