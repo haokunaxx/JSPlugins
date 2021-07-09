@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<script type='text/javascript'>
+		document.documentElement.style.fontSize = '100px';
+	</script>
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./user.css">
+</head>
+<body>
+	<div class="carousel-wrap J_carousel-wrap-1" id="carousel1"></div>
+	<div class="carousel-wrap J_carousel-wrap-2" id="carousel2"></div>
+	<div class="carousel-wrap J_carousel-wrap-4" id="carousel3">
+		<li class="carousel-item">
+			<img src="../images/4.png" alt="">
+		</li>
+		<li class="carousel-item">
+			<img src="../images/2.png" alt="">
+		</li>
+		<li class="carousel-item">
+			<img src="../images/3.png" alt="">
+		</li>
+	</div>
+	<script type="text/tpl" id="carouselItemTpl">
+		<li class="carousel-item">
+			<img src="{{imgSrc}}" alt="">
+			<p class="carousel-title">{{title}}</p>
+		</li>
+	</script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="./index.js"></script>
+
+	<script type="text/javascript">
+		let carouselData = [{
+			imgSrc:'../images/4.png',
+			title:'这是第一个幻灯片的title'
+		},{
+			imgSrc:'../images/2.png',
+			title:'这是第二个幻灯片的title'
+		},{
+			imgSrc:'../images/3.png',
+			title:'这是第三个幻灯片的title'
+		}];
+
+		// -----------------------------------------------异步数据
+		new Carousel({
+			el:'#carousel1',
+			direction:'row',
+			paginationShow:true,
+			infinite:false,
+			carouselData:new Promise((resolve,reject)=>{
+				setTimeout(()=>{
+					resolve(carouselData);
+				},1000)
+			})
+		})
+		// -----------------------------------------------同步数据 + 自定义模板内容
+		new Carousel({
+			el:'#carousel2',
+			direction:'row',
+			paginationShow:true,
+			infinite:false,
+			carouselData:carouselData,
+			carouselItemTpl:$('#carouselItemTpl').html()
+		})
+		// -----------------------------------------------插槽
+		let temp = new Carousel({
+			el:'#carousel3',
+			direction:'column',
+			paginationShow:true,
+			infinite:false
+		})
+		// 重新设置方向
+		// temp.direction = 'row';
+		// temp.setDirection();
+	</script>
+</body>
+</html>

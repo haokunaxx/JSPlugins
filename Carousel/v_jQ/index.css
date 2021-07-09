@@ -1,0 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+	height: 100%;
+	width: 100%;
+}
+
+ul{
+	list-style: none;
+}
+
+.carousel-wrap{
+	position: relative;
+	height: 2rem;
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	background-color: #eee;
+}
+
+.carousel-wrap.row .carousel-list{
+	width: 300%;
+	display: flex;
+	flex-direction: row;
+	transition: transform .6s ease;
+}
+.carousel-wrap.column .carousel-list{
+	height: 6rem;/* 
+	display: flex;
+	flex-direction: column; */
+}
+.carousel-wrap .carousel-list .carousel-item{
+	position: relative;
+	width: 100%;
+	height: 2rem;
+	box-sizing: border-box;
+}
+.carousel-wrap .carousel-list .carousel-item:nth-child(1){
+	background-color: pink;
+}
+.carousel-wrap .carousel-list .carousel-item:nth-child(2){
+	background-color: yellowgreen;
+}
+.carousel-wrap .carousel-list .carousel-item:nth-child(3){
+	background-color: lightblue;
+}
+
+.carousel-wrap .pagination-wrap{
+	display: none;
+	position: absolute;
+	/* width: 1rem; */
+	height: .15rem;
+	/* left: 50%; */
+	right: .1rem;
+	bottom: .1rem;
+	/* background-color: rgba(255,255,255,.6); */
+	/* transform: translate(-50%,0); */
+}
+
+.carousel-wrap .pagination-wrap.column{
+	display: none;
+	position: absolute;
+	/* width: 1rem; */
+	height: auto;
+	width: .15rem;
+	/* left: 50%; */
+	right: .1rem;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.carousel-wrap .pagination-wrap.show,
+.carousel-wrap .pagination-wrap.column.show{
+	display: block;
+}
+.carousel-wrap .pagination-wrap .pagination-list{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/* padding: 0 .04rem; */
+	box-sizing: border-box;
+}
+.carousel-wrap .pagination-wrap.column .pagination-list{
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+.carousel-wrap .pagination-wrap .pagination-list .pagination-item{
+	width: .06rem;
+	height: .06rem;
+	margin-right: .1rem;
+	border-radius: 50%;
+	/* color: ; */
+	border: .01rem solid #fff;
+}
+
+.carousel-wrap .pagination-wrap.column .pagination-list .pagination-item{
+	margin: .1rem 0;
+}
+
+.carousel-wrap .pagination-wrap .pagination-list .pagination-item.active{
+	background-color: #fff;
+}
