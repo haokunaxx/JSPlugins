@@ -25,12 +25,86 @@ ul{
 	width: 300%;
 	display: flex;
 	flex-direction: row;
-	transition: transform .6s ease;
+	/* transition: transform .6s ease; */
 }
 .carousel-wrap.column .carousel-list{
 	height: 6rem;/* 
 	display: flex;
 	flex-direction: column; */
+}
+.carousel-wrap .carousel-list.boucePrev{
+	position: absolute;
+	left: 0;
+	animation-name: boucePrev;
+	animation-duration: 400ms;
+	animation-timing-function: ease;
+}
+.carousel-wrap .carousel-list.bouceNext{
+	position: absolute;
+	left: 0;
+	animation-name: bouceNext;
+	animation-duration: 400ms;
+	animation-timing-function: ease;
+}
+.carousel-wrap.column .carousel-list.boucePrev{
+	position: absolute;
+	left: 0;
+	top: 0;
+	animation-name: boucePrevCol;
+	animation-duration: 400ms;
+	animation-timing-function: ease;
+}
+.carousel-wrap.column .carousel-list.bouceNext{
+	position: absolute;
+	left: 0;
+	top: 0;
+	animation-name: bouceNextCol;
+	animation-duration: 400ms;
+	animation-timing-function: ease;
+}
+@keyframes boucePrev {
+	0%{
+		left: 0;
+	}
+	25%{
+		left: .5rem;
+	}
+	100%{
+		left: 0;
+	}
+}
+@keyframes bouceNext {
+	0%{
+		left: 0;
+	}
+	25%{
+		left: -.5rem;
+	}
+	100%{
+		left: 0;
+	}
+}
+@keyframes boucePrevCol {
+	0%{
+		top: 0;
+	}
+	25%{
+		top: .5rem;
+	}
+	100%{
+		top: 0;
+	}
+}
+@keyframes bouceNextCol {
+	0%{
+		top: 0;
+	}
+	25%{
+		top: -.5rem;
+	}
+	100%{
+		top: 0;
+	}
 }
 .carousel-wrap .carousel-list .carousel-item{
 	position: relative;

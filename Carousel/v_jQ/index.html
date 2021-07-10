@@ -15,6 +15,9 @@
 	<div class="carousel-wrap J_carousel-wrap-2" id="carousel2"></div>
 	<div class="carousel-wrap J_carousel-wrap-4" id="carousel3">
 		<li class="carousel-item">
+			<img src="../images/3.png" alt="">
+		</li>
+		<li class="carousel-item">
 			<img src="../images/4.png" alt="">
 		</li>
 		<li class="carousel-item">
@@ -22,6 +25,9 @@
 		</li>
 		<li class="carousel-item">
 			<img src="../images/3.png" alt="">
+		</li>
+		<li class="carousel-item">
+			<img src="../images/4.png" alt="">
 		</li>
 	</div>
 	<script type="text/tpl" id="carouselItemTpl">
@@ -48,7 +54,7 @@
 		// -----------------------------------------------异步数据
 		new Carousel({
 			el:'#carousel1',
-			direction:'row',
+			carDir:'row',
 			paginationShow:true,
 			infinite:false,
 			carouselData:new Promise((resolve,reject)=>{
@@ -60,21 +66,21 @@
 		// -----------------------------------------------同步数据 + 自定义模板内容
 		new Carousel({
 			el:'#carousel2',
-			direction:'row',
+			carDir:'row',
 			paginationShow:true,
-			infinite:false,
+			infinite:true,
 			carouselData:carouselData,
 			carouselItemTpl:$('#carouselItemTpl').html()
 		})
 		// -----------------------------------------------插槽
 		let temp = new Carousel({
 			el:'#carousel3',
-			direction:'column',
+			carDir:'column',
 			paginationShow:true,
-			infinite:false
+			infinite:true
 		})
 		// 重新设置方向
-		// temp.direction = 'row';
+		// temp.carDir = 'row';
 		// temp.setDirection();
 	</script>
 </body>
